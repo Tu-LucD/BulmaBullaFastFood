@@ -15,14 +15,14 @@ namespace BulmaBullaFastFood.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "What is Bulma and Bulla Fast Food?";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact us with your questions and concerns.";
 
             return View();
         }
