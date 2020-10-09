@@ -4,30 +4,26 @@
 
 <div style=" background-position-y: -125px; color: red; background-size: cover; background-repeat: no-repeat; background-image: url(/images/test_image_background.PNG);" class="jumbotron">
     <span style="float: right;">
-        <button style="margin-right: 25px;">Create Account</button>  
-        <button>Sign in</button>
+        @*These buttons will lead to create account and sign in (not sure yet how to do these)*@
+        <button>@Html.ActionLink("Sign Up", "CreateAccount", "Home")</button>
+        @*This leads to the login page*@
+        <button>@Html.ActionLink("Sign In", "Login", "Home")</button>
     </span>
     <h1>Bulma and Bulla Fast Food</h1>
     <p class="lead">Bulma and Bulla Fast Food is a fast food restaurant chain up and coming in the Greater Montreal Area.</p>
-    <p></p>
 </div>
 
+@*We can have buttons here that show the different catalogs, like drinks, food, and other stuff
+    with a brief description 
+    (We'll only have a few options for each since we don't have a lot of work to do)*@
 <div class="row">
     <div class="col-md-4">
-        <h2></h2>
-        <p>
-            
-        </p>
-        <p></p>
+        @*Drinks*@
     </div>
     <div class="col-md-4">
-        <h2></h2>
-        <p></p>
-        <p></p>
+        @*Food*@
     </div>
     <div class="col-md-4">
-        <h2></h2>
-        <p></p>
-        <p></p>
+        @*Other stuff (We can remove this if nothing else)*@
     </div>
 </div>
