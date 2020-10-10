@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BulmaBullaFastFood.Models;
 
 namespace BulmaBullaFastFood.Controllers
 {
     public class HomeController : Controller
     {
+        private BBFastFoodDBEntities db = new BBFastFoodDBEntities();
         public ActionResult Index()
         {
             return View();
@@ -38,6 +40,18 @@ namespace BulmaBullaFastFood.Controllers
         {
             ViewBag.Message = "Create your new account";
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateAccount(Account accountToCreate)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            db.Accounts.Add(accountToCreate);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
