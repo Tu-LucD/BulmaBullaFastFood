@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using BulmaBullaFastFood.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace BulmaBullaFastFood.Controllers
 {
@@ -71,10 +73,6 @@ namespace BulmaBullaFastFood.Controllers
                         Session["UserID"] = obj.Id.ToString();
                         Session["UserName"] = obj.username.ToString();
                         return RedirectToAction("UserDashboard");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index");
                     }
                 }
             }

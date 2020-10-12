@@ -11,7 +11,15 @@
         function AddOrderToCart() {
             var value = '@Request.RequestContext.HttpContext.Session["UserName"]';
             alert(value);
-        }
+    }
+
+    function Check() {
+        
+        var obj = document.getElementById('txtLabel');
+        obj.innerHTML = "Your sign in information is incorrect";
+        obj.style.color = "red";
+        
+    }
 </script>
 </head>
 <body>
