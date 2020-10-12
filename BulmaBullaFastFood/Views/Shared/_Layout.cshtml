@@ -6,6 +6,13 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+<script>
+        function AddOrderToCart() {
+            var value = '@Request.RequestContext.HttpContext.Session["UserName"]';
+            alert(value);
+        }
+</script>
 </head>
 <body>
     <div style="background-color: yellow;" class="navbar navbar-inverse navbar-fixed-top">
