@@ -31,6 +31,12 @@ namespace BulmaBullaFastFood.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            ViewBag.Message = "Admire our vast collection of culinary treats";
+            return View();
+        }
+
         public ActionResult Login()
         {
             ViewBag.Message = "Login to make your orders";

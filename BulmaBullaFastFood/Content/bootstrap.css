@@ -189,7 +189,19 @@ table {
 }
 td,
 th {
-  padding: 0;
+  padding-top: 10px;
+  text-align:center
+}
+td img{
+    height:150px;
+    width: 200px;
+}
+.quantityInputs{
+    width: 30px;
+}
+tr{
+    padding-bottom: 30px;
+    border-bottom:3px solid yellow;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {

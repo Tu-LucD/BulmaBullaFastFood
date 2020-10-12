@@ -168,6 +168,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\beefBouguignon.png" />
+    <Content Include="images\boba.jpg" />
+    <Content Include="images\brockOnigiri.jpg" />
+    <Content Include="images\erinaEggBenedict.png" />
+    <Content Include="images\gotchaPork.jpg" />
+    <Content Include="images\happyMeal.jpg" />
+    <Content Include="images\hiddenLeafRamen.jpg" />
+    <Content Include="images\karaageRoll.png" />
+    <Content Include="images\krabbyPatty.png" />
+    <Content Include="images\pocari.jpg" />
+    <Content Include="images\rainbowTerrine.jpg" />
+    <Content Include="images\ramune.jpg" />
+    <Content Include="images\senzuBean.jpg" />
     <Content Include="images\test_image_background.PNG" />
     <Content Include="Models\BBDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -215,6 +228,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CreateAccount.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
