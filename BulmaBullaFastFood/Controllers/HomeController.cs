@@ -129,8 +129,10 @@ namespace BulmaBullaFastFood.Controllers
 
             // Call the SendEmail Method
             SendEmail(accountToCreate);
+            Session["UserID"] = accountToCreate.Id.ToString();
+            Session["UserName"] = accountToCreate.username.ToString();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("UserDashboard");
         }
 
         // Private method to send a confirmation email to the new account's email.
