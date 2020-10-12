@@ -52,6 +52,8 @@ namespace BulmaBullaFastFood.Controllers
 
             db.Accounts.Add(accountToCreate);
             db.SaveChanges();
+
+            // Call the SendEmail Method
             SendEmail(accountToCreate);
 
             return RedirectToAction("Index");
@@ -66,9 +68,10 @@ namespace BulmaBullaFastFood.Controllers
                 MailMessage message = new MailMessage("technotransact@gmail.com", 
                                                         account.email, 
                                                         "CONFIRMATION",
-                                                        @"Hello, you are receiving this email because we have confirmed your email into our database! " +
-                                                        "" +
-                                                        "Thank you!");
+                                                        "Hello, you are receiving this email because we have confirmed your email into our database! " +
+                                                        "<br>Username: " + account.username +
+                                                        "<br>Password: " + account.password +
+                                                        "<br><br>Thank you!");
                 // Allow specify whether or not we can attach/send html in the body of the mail
                 message.IsBodyHtml = true;
 
