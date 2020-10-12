@@ -6,7 +6,10 @@
 <h2>Menu</h2>
 
 <table width="80%">
-    <tr><td colspan="3"><h3>Dishes</h3></td></tr>
+    <tr>
+        <td colspan="3"><h3>Dishes</h3></td>
+        <td><button name="btnMenuItems">Add items to cart</button></td>
+    </tr>
     <tr>
         <td><img src="~/images/senzuBean.jpg" /><h4>Senzu Bean</h4></td>
         <td>$999.99</td>
@@ -15,7 +18,7 @@
             <p>Health: 100%</p>
         </td>
         <td>
-            <input id="senzuQuantity" class="quantityInputs"type="text" value="0"/>
+            <input name="senzuQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
         </td>
     </tr>
     <tr>
@@ -26,7 +29,7 @@
             <p>Bacon:   500g</p>
         </td>
         <td>
-            <input id="gotchaQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="gotchaQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
@@ -37,7 +40,7 @@
             <p>Secret</p>
         </td>
         <td>
-            <input id="krabbyQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="krabbyQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
@@ -48,57 +51,96 @@
             <p>Ramen:  100%</p>
         </td>
         <td>
-            <input id="ramenQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="ramenQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
-        <td><img src="~/images/brockOnigiri.jpg"/><h4>Brock's Onigiri</h4></td>
+        <td><img src="~/images/brockOnigiri.jpg" /><h4>Brock's Onigiri</h4></td>
         <td>$19.99</td>
         <td>
             <p>Rice:          80%</p>
             <p>Brock's love: 100%</p>
         </td>
         <td>
-            <input id="onigiriQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="onigiriQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
-        <td><img src="~/images/happyMeal.jpg"/><h4>Happy Meal</h4></td>
+        <td><img src="~/images/happyMeal.jpg" /><h4>Happy Meal</h4></td>
         <td>$3.99</td>
         <td>
             <p>Happiness:  100%</p>
             <p>Cholesterol: 500g</p>
         </td>
         <td>
-            <input id="happyQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="happyQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
-        <td><img src="~/images/karaageRoll.png"/><h4>Karaage Roll</h4></td>
+        <td><img src="~/images/karaageRoll.png" /><h4>Karaage Roll</h4></td>
         <td>$12.99</td>
         <td>
             <p>Ingredients:</p>
             <p>Karaage, Roll</p>
         </td>
         <td>
-            <input id="senzuQuantity" class="quantityInputs"type="text" value="0" />
+            <input name="karaageQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
     <tr>
-        <td>Menu Item</td>
-        <td>Price</td>
-        <td>Nutritional Facts</td>
+        <td><img src="~/images/rainbowTerrine.jpg" /><h4>Rainbow Terrine</h4></td>
+        <td>$39.99</td>
         <td>
-            <input id="senzuQuantity" class="quantityInputs"type="text" value="0" />
+            <p>Ingredients:</p>
+            <p>Cake, Assorted food colouring</p>
+        </td>
+        <td>
+            <input name="rainbowQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
-    <tr><td colspan="3"><h3>Drinks</h3></td></tr>
     <tr>
-        <td>Menu Item</td>
-        <td>Price</td>
-        <td>Nutritional Facts</td>
+        <td><img src="~/images/beefBouguignon.png" /><h4>Beef Bouguignon</h4></td>
+        <td>$69.99</td>
         <td>
-            <input id="senzuQuantity" class="quantityInputs"type="text" value="0" />
+            <p>Beef:  1000g</p>
+            <p>Water: 300ml</p>
+        </td>
+        <td>
+            <input name="beefQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
+        </td>
+    </tr>
+    <tr>
+        <td><img src="~/images/erinaEggBenedict.png" /><h4>Erina's Egg Benedict</h4></td>
+        <td>$49.99</td>
+        <td>
+            <p>Ingredients:</p>
+            <p>Eggs, Benedicts</p>
+        </td>
+        <td>
+            <input name="eggQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
+        </td>
+    </tr>
+    <tr><td colspan="4"><h3>Drinks</h3></td></tr>
+    <tr>
+        <td><img src="~/images/ramune.jpg"/><h4>Ramune</h4></td>
+        <td>$2.99</td>
+        <td>
+            <p>Ingredients:</p>
+            <p>Water</p>
+        </td>
+        <td>
+            <input name="ramuneQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
+        </td>
+    </tr>
+    <tr>
+        <td><img src="~/images/pocari.jpg"/><h4>Pocari Sweat</h4></td>
+        <td>$2.99</td>
+        <td>
+            <p>Ingredients</p>
+            <p>Fish sweat</p>
+        </td>
+        <td>
+            <input name="pocariQuantity" class="quantityInputs" type="number" min="0" value="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  />
         </td>
     </tr>
 </table>

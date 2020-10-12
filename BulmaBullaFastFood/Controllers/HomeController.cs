@@ -12,6 +12,38 @@ namespace BulmaBullaFastFood.Controllers
     public class HomeController : Controller
     {
         private BBFastFoodDBEntities db = new BBFastFoodDBEntities();
+
+        class OrderItems
+        {
+            private int senzuQuantity;
+            private int porkQuantity;
+            private int krabbyQuantity;
+            private int ramenQuantity;
+            private int onigiriQuantity;
+            private int happyQuantity;
+            private int karaageQuantity;
+            private int rainbowQuantity;
+            private int beefQuantity;
+            private int eggQuantity;
+            private int ramuneQuantity;
+            private int pocariQuantity;
+
+            public OrderItems()
+            {
+                senzuQuantity = 0;
+                porkQuantity = 0;
+                krabbyQuantity = 0;
+                ramenQuantity = 0;
+                onigiriQuantity = 0;
+                happyQuantity = 0;
+                karaageQuantity = 0;
+                rainbowQuantity = 0;
+                beefQuantity = 0;
+                eggQuantity = 0;
+                ramuneQuantity = 0;
+                pocariQuantity = 0;
+            }
+        }
         public ActionResult Index()
         {
             return View();
