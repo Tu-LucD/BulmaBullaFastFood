@@ -44,6 +44,42 @@ namespace BulmaBullaFastFood.Controllers
             return View();
         }
 
+        public ActionResult UserDashboard()
+        {
+            if (Session["UserID"] != null)
+            {
+                ViewBag.Message = "WELCOME " + Session["UserName"].ToString() + "!";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Login(Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                using (BBFastFoodDBEntities db = new BBFastFoodDBEntities())
+                {
+                    var obj = db.Accounts.Where(a => a.username.Equals(account.username) && a.password.Equals(account.password)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        Session["UserID"] = obj.Id.ToString();
+                        Session["UserName"] = obj.username.ToString();
+                        return RedirectToAction("UserDashboard");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            return View(account);
+        }
+
         public ActionResult CreateAccount()
         {
             ViewBag.Message = "Create your new account";
