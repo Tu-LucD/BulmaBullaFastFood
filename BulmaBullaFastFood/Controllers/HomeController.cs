@@ -13,7 +13,8 @@ namespace BulmaBullaFastFood.Controllers
 {
     public class HomeController : Controller
     {
-        private BBFastFoodDBEntities db = new BBFastFoodDBEntities();       
+        
+        private BBFastFoodDBEntities db = new BBFastFoodDBEntities();
 
         public ActionResult Index()
         {
@@ -47,6 +48,19 @@ namespace BulmaBullaFastFood.Controllers
             return View();
         }
 
+        public ActionResult ViewProfile()
+        {
+            ViewBag.Message = "This is your profile: " + Session["UserName"];
+            List<Account> li = new List<Account>();
+
+            // TOFIX
+            // Viewing the profile only works if id is hardcoded. 
+            int id = 9;
+            var account = db.Accounts.Where(x => x.Id == id).FirstOrDefault();
+            li.Add(account);
+            return View(li);
+        }
+
         public ActionResult UserDashboard()
         {
             if (Session["UserID"] != null)
@@ -67,11 +81,12 @@ namespace BulmaBullaFastFood.Controllers
             {
                 using (BBFastFoodDBEntities db = new BBFastFoodDBEntities())
                 {
-                    var obj = db.Accounts.Where(a => a.username.Equals(account.username) && a.password.Equals(account.password)).FirstOrDefault();
+                    Account obj = (Account)db.Accounts.Where(a => a.username.Equals(account.username) && a.password.Equals(account.password)).FirstOrDefault();
                     if (obj != null)
                     {
-                        Session["UserID"] = obj.Id.ToString();
-                        Session["UserName"] = obj.username.ToString();
+                        Session["UserID"] = account.Id;
+                        Session["UserName"] = account.username;
+                        Session["Password"] = account.password;
                         return RedirectToAction("UserDashboard");
                     }
                 }
