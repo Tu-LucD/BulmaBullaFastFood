@@ -53,9 +53,8 @@ namespace BulmaBullaFastFood.Controllers
             ViewBag.Message = "This is your profile: " + Session["UserName"];
             List<Account> li = new List<Account>();
 
-            // TOFIX
-            // Viewing the profile only works if id is hardcoded. 
-            int id = 9;
+            string i = Session["UserID"].ToString();
+            int id = Convert.ToInt32(i);
             var account = db.Accounts.Where(x => x.Id == id).FirstOrDefault();
             li.Add(account);
             return View(li);
@@ -84,9 +83,8 @@ namespace BulmaBullaFastFood.Controllers
                     Account obj = (Account)db.Accounts.Where(a => a.username.Equals(account.username) && a.password.Equals(account.password)).FirstOrDefault();
                     if (obj != null)
                     {
-                        Session["UserID"] = account.Id;
-                        Session["UserName"] = account.username;
-                        Session["Password"] = account.password;
+                        Session["UserID"] = obj.Id.ToString();
+                        Session["UserName"] = account.username.ToString();
                         return RedirectToAction("UserDashboard");
                     }
                 }
