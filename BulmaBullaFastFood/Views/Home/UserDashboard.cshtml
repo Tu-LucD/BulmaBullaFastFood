@@ -4,6 +4,8 @@
     ViewBag.Title = "UserDashboard";
 }
 
+<button style="float: right;">@Html.ActionLink("Sign Out", "Index", "Home")</button>
+
 <h2>@ViewBag.Message</h2>
 
 @Html.ActionLink("View profile", "ViewProfile", "Home")

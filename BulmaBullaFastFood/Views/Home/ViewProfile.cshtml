@@ -44,10 +44,12 @@
             @Html.DisplayFor(modelItem => item.city)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Update Profile", "EditProfile", new { id=item.Id }) |
+            @Html.ActionLink("Delete Profile", "DeleteProfile", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+
+@Html.ActionLink("Back to Dashboard", "UserDashboard", "Home")

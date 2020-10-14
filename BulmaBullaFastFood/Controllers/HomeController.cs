@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
@@ -33,6 +34,53 @@ namespace BulmaBullaFastFood.Controllers
             ViewBag.Message = "Contact us with your questions and concerns.";
 
             return View();
+        }
+
+        public ActionResult EditProfile(int id)
+        {
+            ViewBag.Message = "Update Your Profile";
+            return View(db.Accounts.Where(x => x.Id == id).FirstOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(int id, Account account)
+        {
+            try
+            {
+                db.Entry(account).State = EntityState.Modified; // Grab modification
+                db.SaveChanges(); // To persist the change
+
+                return RedirectToAction("ViewProfile");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult DeleteProfile(int id)
+        {
+            ViewBag.Message = "Do you want to delete your profile?";
+            return View(db.Accounts.Where(x => x.Id == id).FirstOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult DeleteProfile(int id, Account account)
+        {
+            try
+            {
+                    
+                account = db.Accounts.Where(x => x.Id == id).FirstOrDefault();
+                    
+                db.Accounts.Remove(account);
+                    
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Menu()
