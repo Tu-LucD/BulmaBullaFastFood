@@ -132,7 +132,9 @@ namespace BulmaBullaFastFood.Controllers
                     if (obj != null)
                     {
                         Session["UserID"] = obj.Id.ToString();
-                        Session["UserName"] = account.username.ToString();
+                        Session["UserName"] = obj.username.ToString();
+                        Session["Gender"] = obj.gender.ToString();
+                        Session["City"] = obj.city.ToString();
                         return RedirectToAction("UserDashboard");
                     }
                 }

@@ -11,20 +11,25 @@ namespace BulmaBullaFastFood
 {
     public partial class Checkout : System.Web.UI.Page
     {
-        String user, food;
+        public String user, food, drink, city, gender, price;
+        public int id = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|BBFastFoodDB.mdf;Integrated Security=False";
 
             food = Request.QueryString["ka"].ToString();
+
             string i = Session["UserID"].ToString();
-            int id = Convert.ToInt32(i);
+            id = Convert.ToInt32(i);
+
+            city = Session["City"].ToString();
+            gender = Session["Gender"].ToString();
 
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', 'drink', 'montreal', 'Male', 12.00)";
+            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', 'drink', '"+city+"', '"+gender+"', 12.00)";
             cmd.ExecuteNonQuery();
             con.Close();
         }
