@@ -17,12 +17,14 @@ namespace BulmaBullaFastFood
             String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|BBFastFoodDB.mdf;Integrated Security=False";
 
             food = Request.QueryString["ka"].ToString();
-            
+            string i = Session["UserID"].ToString();
+            int id = Convert.ToInt32(i);
+
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into orders values (2,'" + food + "', 'drink', 'montreal', 'Male', 12.00)";
+            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', 'drink', 'montreal', 'Male', 12.00)";
             cmd.ExecuteNonQuery();
             con.Close();
         }
