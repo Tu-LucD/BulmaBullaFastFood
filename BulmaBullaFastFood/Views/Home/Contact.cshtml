@@ -1,8 +1,5 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿
+<h2>@ViewBag.Message</h2>
 @*This will have the complaints section and feedback*@
 <address>
     1234 Van Horne<br />
@@ -10,7 +7,26 @@
     <abbr title="Phone">Phone:</abbr>
     123.456.7891
 </address>
+<br />
+<h2>Here is our Newsletter</h2>
+<a href="~/newsletter/news.pdf" download="">This is our updated newsletter.</a>
+<br />
+<h2>Submit a form to give feedback or concerns</h2>
+<form>
+    <input id="contactEmail" style="margin-bottom: 10px;" type="email" placeholder="Email" />
+    <br />
+    <textarea id="contactMessage" cols="40" rows="5" placeholder="Message"></textarea>
+    <br />
+    <input type="button" value="Send" onclick="sendFeedback()"/>
+</form>
 
-<address>
-    
-</address>
+<script>
+    function sendFeedback() {
+        var email = document.getElementById("contactEmail").value;
+        var message = document.getElementById("contactMessage").value;
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "/Feedback.aspx?em=" + email + "&mg=" + message, false);
+        xmlhttp.send(null)
+        alert("Your message has been sent. Thank you!");
+    }
+</script>
