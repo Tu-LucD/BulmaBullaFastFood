@@ -108,6 +108,14 @@ namespace BulmaBullaFastFood.Controllers
             return View(li);
         }
 
+        public ActionResult ViewPreviousOrders()
+        {
+            ViewBag.Message = "These are your previous orders, " + Session["UserName"] + ".";
+            string i = Session["UserID"].ToString();
+            int id = Convert.ToInt32(i);
+            return View(db.Orders.Where(x => x.customerId == id).ToList());
+        }
+
         public ActionResult UserDashboard()
         {
             if (Session["UserID"] != null)

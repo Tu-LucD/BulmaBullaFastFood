@@ -241,6 +241,7 @@
     <Content Include="Views\Home\ViewProfile.cshtml" />
     <Content Include="Views\Home\DeleteProfile.cshtml" />
     <Content Include="Views\Home\EditProfile.cshtml" />
+    <Content Include="Views\Home\ViewPreviousOrders.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
