@@ -10,6 +10,7 @@
 
     <script>
         function AddOrderToCart() {
+            var price = 0;
             var senzuQuantity = document.getElementById("senzuQuantity").value;
             var gotchaQuantity = document.getElementById("gotchaQuantity").value;
             var krabbyQuantity = document.getElementById("krabbyQuantity").value;
@@ -17,17 +18,22 @@
             var onigiriQuantity = document.getElementById("onigiriQuantity").value;
             var happyQuantity = document.getElementById("happyQuantity").value;
             var karaageQuantity = document.getElementById("karaageQuantity").value;
+            if (karaageQuantity > 0) {
+                price += document.getElementById("kaPrice").innerHTML.substr(1) * karaageQuantity;
+            }
             var rainbowQuantity = document.getElementById("rainbowQuantity").value;
             var beefQuantity = document.getElementById("beefQuantity").value;
             var eggQuantity = document.getElementById("eggQuantity").value;
+
             var ramuneQuantity = document.getElementById("ramuneQuantity").value;
             var pocariQuantity = document.getElementById("pocariQuantity").value;
+
 
             let xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "/Checkout.aspx?sz=sz" + senzuQuantity + "&go=go" + gotchaQuantity + "&kr=kr" + krabbyQuantity +
                 "&rn=rn" + ramenQuantity + "&on=on" + onigiriQuantity + "&ha=ha" + happyQuantity + "&ka=ka" + karaageQuantity +
                 "&ri=ri" + rainbowQuantity + "&be=be" + beefQuantity + "&eg=eg" + eggQuantity + "&re=re" + ramuneQuantity +
-                "&po=po" + pocariQuantity, false);
+                "&po=po" + pocariQuantity + "&pr=" + price, false);
             xmlhttp.send(null)
             alert("Record inserted!");
         }

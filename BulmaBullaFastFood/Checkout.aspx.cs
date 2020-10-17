@@ -24,12 +24,14 @@ namespace BulmaBullaFastFood
 
             city = Session["City"].ToString();
             gender = Session["Gender"].ToString();
+            price = Request.QueryString["pr"].ToString();
+            double oPrice = Convert.ToDouble(price);
 
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', 'drink', '"+city+"', '"+gender+"', 12.00)";
+            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', 'drink', '"+city+"', '"+gender+"', '"+oPrice+"')";
             cmd.ExecuteNonQuery();
             con.Close();
         }
