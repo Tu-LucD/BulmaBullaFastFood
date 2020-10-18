@@ -36,6 +36,12 @@ namespace BulmaBullaFastFood.Controllers
             return View();
         }
 
+        public ActionResult SoulmatePage()
+        {
+            ViewBag.Message = "Find your soulmates";
+            return View();
+        }
+
         public ActionResult EditProfile(int id)
         {
             ViewBag.Message = "Update Your Profile";
@@ -116,6 +122,24 @@ namespace BulmaBullaFastFood.Controllers
             return View(db.Orders.Where(x => x.customerId == id).ToList());
         }
 
+        public ActionResult GenderS()
+        {
+            ViewBag.Message = "These are your soulmates";
+            string i = Session["UserID"].ToString();
+            string gender = Session["Gender"].ToString();
+            int id = Convert.ToInt32(i);
+            return View(db.Orders.Where(x => x.gender == gender && x.customerId != id).ToList());
+        }
+
+        public ActionResult CityS()
+        {
+            ViewBag.Message = "These are your soulmates";
+            string i = Session["UserID"].ToString();
+            string city = Session["City"].ToString();
+            int id = Convert.ToInt32(i);
+            return View(db.Orders.Where(x => x.city == city && x.customerId != id).ToList());
+        }
+
         public ActionResult UserDashboard()
         {
             if (Session["UserID"] != null)
@@ -169,6 +193,8 @@ namespace BulmaBullaFastFood.Controllers
             SendEmail(accountToCreate);
             Session["UserID"] = accountToCreate.Id.ToString();
             Session["UserName"] = accountToCreate.username.ToString();
+            Session["Gender"] = accountToCreate.gender.ToString();
+            Session["City"] = accountToCreate.city.ToString();
 
             return RedirectToAction("UserDashboard");
         }

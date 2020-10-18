@@ -251,6 +251,9 @@
     <Content Include="Views\Home\DeleteProfile.cshtml" />
     <Content Include="Views\Home\EditProfile.cshtml" />
     <Content Include="Views\Home\ViewPreviousOrders.cshtml" />
+    <Content Include="Views\Home\SoulmatePage.cshtml" />
+    <Content Include="Views\Home\GenderS.cshtml" />
+    <Content Include="Views\Home\CityS.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
