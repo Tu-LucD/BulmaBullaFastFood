@@ -140,6 +140,22 @@ namespace BulmaBullaFastFood.Controllers
             return View(db.Orders.Where(x => x.city == city && x.customerId != id).ToList());
         }
 
+        public ActionResult FoodDrinkS(string searchString)
+        {
+            ViewBag.Message = "Search for soulmates through food or drinks you've purchased";
+            string i = Session["UserID"].ToString();
+            int id = Convert.ToInt32(i);
+
+            var food = from m in db.Orders
+                       where m.customerId != id
+                       select m;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                food = food.Where(s => s.food.Contains(searchString) || s.drink.Contains(searchString));
+            }
+            return View(food.ToList());
+        }
+
         public ActionResult UserDashboard()
         {
             if (Session["UserID"] != null)

@@ -254,6 +254,7 @@
     <Content Include="Views\Home\SoulmatePage.cshtml" />
     <Content Include="Views\Home\GenderS.cshtml" />
     <Content Include="Views\Home\CityS.cshtml" />
+    <Content Include="Views\Home\FoodDrinkS.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
