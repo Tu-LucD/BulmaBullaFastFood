@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BulmaBullaFastFood.Models.Order>
+
+
+
+<h2>@ViewBag.Message</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.drink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.food)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.drink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.price)
+        </td>
+    </tr>
+}
+
+</table>
+
+<input type="button" onclick="confirm()" value="Confirm" />
+
+<button id="returnBtn" hidden>@Html.ActionLink("Return to Dashboard", "UserDashboard", "Home")</button>
+
+<script>
+    function confirm() {
+        alert("Your order has been completed");
+        document.getElementById("returnBtn").style.display = "block";
+    }
+
+</script>

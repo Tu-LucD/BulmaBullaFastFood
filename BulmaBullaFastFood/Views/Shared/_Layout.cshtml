@@ -26,10 +26,10 @@
 
 
             let xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "/Checkout.aspx?sz=sz" + senzuQuantity + "&go=go" + gotchaQuantity + "&kr=kr" + krabbyQuantity +
-                "&rn=rn" + ramenQuantity + "&on=on" + onigiriQuantity + "&ha=ha" + happyQuantity + "&ka=ka" + karaageQuantity +
-                "&ri=ri" + rainbowQuantity + "&be=be" + beefQuantity + "&eg=eg" + eggQuantity + "&re=re" + ramuneQuantity +
-                "&po=po" + pocariQuantity, false);
+            xmlhttp.open("GET", "/Checkout.aspx?sz=senzuBean" + senzuQuantity + "&go=gotchaPork" + gotchaQuantity + "&kr=krabbyPatty" + krabbyQuantity +
+                "&rn=hiddenLeafRamen" + ramenQuantity + "&on=brockOnigiri" + onigiriQuantity + "&ha=happyMeal" + happyQuantity + "&ka=karaageRoll" + karaageQuantity +
+                "&ri=rainbowTerrine" + rainbowQuantity + "&be=beefBouguignon" + beefQuantity + "&eg=erinaEggBenedict" + eggQuantity + "&re=ramune" + ramuneQuantity +
+                "&po=pocari" + pocariQuantity, false);
             xmlhttp.send(null)
             @*window.open('@Url.Action("Payment", "Home")');*@
             document.getElementById("viewCartBtn").style.display = "block";

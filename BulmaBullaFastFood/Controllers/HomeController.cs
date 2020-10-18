@@ -250,7 +250,14 @@ namespace BulmaBullaFastFood.Controllers
 
         public ActionResult Payment()
         {
-            return View();
+            ViewBag.Message = "Confirm your Order";
+            List<Order> li = new List<Order>();
+
+            string i = Session["UserID"].ToString();
+            int id = Convert.ToInt32(i);
+            Order order = db.Orders.AsEnumerable().Where(x => x.customerId == id).Last();
+            li.Add(order);
+            return View(li);
         }
     }
 }

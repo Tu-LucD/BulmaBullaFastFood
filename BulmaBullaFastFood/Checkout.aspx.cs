@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace BulmaBullaFastFood
 {
@@ -48,8 +49,8 @@ namespace BulmaBullaFastFood
             int counter = 0;
             foreach(string foodItem in foodItems)
             {
-                itemQuantity = Int32.Parse(foodItem.Substring(2));
-                if(itemQuantity > 0)
+                itemQuantity = Int32.Parse(Regex.Match(foodItem, @"\d").Value);
+                if (itemQuantity > 0)
                 {
                     sendFood += foodItem + " ";
                 }
@@ -93,7 +94,7 @@ namespace BulmaBullaFastFood
             string[] drinkItems = drink.Split(' ');
             foreach (string drinkItem in drinkItems)
             {
-                itemQuantity = Int32.Parse(drinkItem.Substring(2));
+                itemQuantity = Int32.Parse(Regex.Match(drinkItem, @"\d").Value);
                 if (itemQuantity > 0)
                 {
                     sendDrink += drinkItem + " ";
