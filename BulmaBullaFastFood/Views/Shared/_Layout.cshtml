@@ -33,7 +33,7 @@
             xmlhttp.open("GET", "/Checkout.aspx?sz=sz" + senzuQuantity + "&go=go" + gotchaQuantity + "&kr=kr" + krabbyQuantity +
                 "&rn=rn" + ramenQuantity + "&on=on" + onigiriQuantity + "&ha=ha" + happyQuantity + "&ka=ka" + karaageQuantity +
                 "&ri=ri" + rainbowQuantity + "&be=be" + beefQuantity + "&eg=eg" + eggQuantity + "&re=re" + ramuneQuantity +
-                "&po=po" + pocariQuantity + "&pr=" + price, false);
+                "&po=po" + pocariQuantity, false);
             xmlhttp.send(null)
             alert("Record inserted!");
         }
@@ -63,6 +63,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("User Dashboard", "UserDashboard", "Home")</li>
                 </ul>
             </div>
         </div>
