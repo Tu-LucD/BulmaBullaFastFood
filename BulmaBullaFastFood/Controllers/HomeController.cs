@@ -246,5 +246,10 @@ namespace BulmaBullaFastFood.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
     }
 }

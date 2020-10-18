@@ -8,9 +8,8 @@
     @Scripts.Render("~/bundles/modernizr")
 
 
-    <script>
-        function AddOrderToCart() {
-            var price = 0;
+<script>
+        function AddOrderToCart() {            
             var senzuQuantity = document.getElementById("senzuQuantity").value;
             var gotchaQuantity = document.getElementById("gotchaQuantity").value;
             var krabbyQuantity = document.getElementById("krabbyQuantity").value;
@@ -35,7 +34,12 @@
                 "&ri=ri" + rainbowQuantity + "&be=be" + beefQuantity + "&eg=eg" + eggQuantity + "&re=re" + ramuneQuantity +
                 "&po=po" + pocariQuantity, false);
             xmlhttp.send(null)
-            alert("Record inserted!");
+            window.open('@Url.Action("Payment", "Home")');
+
+            var totalPrice = 0;
+            if (senzuQuantity > 0) {
+                $('#paymentTable').append("<tr><td>Senzu Beans</td><td>" + senzuQuantity +"x</td > <td>$999.99</td></tr>");
+            }
         }
 
         function Check() {
@@ -45,7 +49,7 @@
             obj.style.color = "red";
 
         }
-    </script>
+</script>
 </head>
 <body>
     <div style="background-color: yellow;" class="navbar navbar-inverse navbar-fixed-top">
