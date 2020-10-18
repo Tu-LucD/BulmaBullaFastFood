@@ -8,7 +8,10 @@
 <table width="80%">
     <tr>
         <td colspan="3"><h3>Dishes</h3></td>
-        <td><button id="btnMenuItems" onclick="AddOrderToCart()">Add items to cart</button></td>
+        <td>
+            <button id="btnMenuItems" onclick="AddOrderToCart()">Add items to cart</button>
+            <button style="float: right;" hidden id="viewCartBtn" >@Html.ActionLink("Finalize Order", "Payment", "Home")</button>
+        </td>
     </tr>
     <tr>
         <td><img src="~/images/senzuBean.jpg" /><h4>Senzu Bean</h4></td>

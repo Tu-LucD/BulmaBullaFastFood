@@ -255,7 +255,6 @@
     <Content Include="Views\Home\GenderS.cshtml" />
     <Content Include="Views\Home\CityS.cshtml" />
     <Content Include="Views\Home\FoodDrinkS.cshtml" />
-    <Content Include="Views\Home\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -17,9 +17,6 @@
             var onigiriQuantity = document.getElementById("onigiriQuantity").value;
             var happyQuantity = document.getElementById("happyQuantity").value;
             var karaageQuantity = document.getElementById("karaageQuantity").value;
-            if (karaageQuantity > 0) {
-                price += document.getElementById("kaPrice").innerHTML.substr(1) * karaageQuantity;
-            }
             var rainbowQuantity = document.getElementById("rainbowQuantity").value;
             var beefQuantity = document.getElementById("beefQuantity").value;
             var eggQuantity = document.getElementById("eggQuantity").value;
@@ -34,12 +31,10 @@
                 "&ri=ri" + rainbowQuantity + "&be=be" + beefQuantity + "&eg=eg" + eggQuantity + "&re=re" + ramuneQuantity +
                 "&po=po" + pocariQuantity, false);
             xmlhttp.send(null)
-            window.open('@Url.Action("Payment", "Home")');
+            @*window.open('@Url.Action("Payment", "Home")');*@
+            document.getElementById("viewCartBtn").style.display = "block";
 
-            var totalPrice = 0;
-            if (senzuQuantity > 0) {
-                $('#paymentTable').append("<tr><td>Senzu Beans</td><td>" + senzuQuantity +"x</td > <td>$999.99</td></tr>");
-            }
+           
         }
 
         function Check() {
@@ -48,7 +43,11 @@
             obj.innerHTML = "Your sign in information is incorrect";
             obj.style.color = "red";
 
-        }
+    }
+
+    function test() {
+        alert("John")
+    }
 </script>
 </head>
 <body>

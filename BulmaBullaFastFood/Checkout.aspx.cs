@@ -30,6 +30,9 @@ namespace BulmaBullaFastFood
             drink += Request.QueryString["re"].ToString() + " ";
             drink += Request.QueryString["po"].ToString();
 
+            string sendFood = "";
+            string sendDrink = "";
+
 
             string i = Session["UserID"].ToString();
             id = Convert.ToInt32(i);
@@ -46,6 +49,10 @@ namespace BulmaBullaFastFood
             foreach(string foodItem in foodItems)
             {
                 itemQuantity = Int32.Parse(foodItem.Substring(2));
+                if(itemQuantity > 0)
+                {
+                    sendFood += foodItem + " ";
+                }
                 switch(counter)
                 {
                     //Senzu Bean
@@ -87,6 +94,10 @@ namespace BulmaBullaFastFood
             foreach (string drinkItem in drinkItems)
             {
                 itemQuantity = Int32.Parse(drinkItem.Substring(2));
+                if (itemQuantity > 0)
+                {
+                    sendDrink += drinkItem + " ";
+                }
                 switch (counter)
                 {
                     //Ramune
@@ -103,7 +114,7 @@ namespace BulmaBullaFastFood
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into orders values ('"+id+"','" + food + "', '" + drink + "', '"+city+"', '"+gender+"', '"+oPrice+"')";
+            cmd.CommandText = "insert into orders values ('"+id+"','" + sendFood + "', '" + sendDrink + "', '"+city+"', '"+gender+"', '"+oPrice+"')";
             cmd.ExecuteNonQuery();
             con.Close();
         }
