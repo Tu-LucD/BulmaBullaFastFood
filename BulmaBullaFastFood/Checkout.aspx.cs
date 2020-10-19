@@ -111,6 +111,11 @@ namespace BulmaBullaFastFood
                 counter++;
             }
 
+            if(oPrice < 25)
+            {
+                oPrice += 15;
+            }
+
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlCommand cmd = con.CreateCommand();
